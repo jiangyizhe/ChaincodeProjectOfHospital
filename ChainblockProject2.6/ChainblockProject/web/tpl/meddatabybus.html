@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>queryResule</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="/static/css/reset.css" rel="stylesheet">
+    <!-- Bootstrap3.3.5 CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/queryResult.css" rel="stylesheet">
+  </head>
+  <body>
+  <div>
+      <div style="text-align: center">
+          <h2 style="  font-size: 24px;font-weight: normal;text-align: center;line-height: 40px;padding: 15px 0 10px 0;color: #2EAFBB;">查询结果</h2>
+          <p>
+              <a href="/index">返回首页</a>
+          </p>
+          {{if .History}}
+            <div>
+                <table style=" width: 800px;
+  margin: 0 auto;
+  white-space: nowrap;">
+                    <tr>
+                        <td >ID</td>
+                        <td>业务号</td>
+                        <td>费用类别</td>
+                        <td>费用类别名称</td>
+                        <td>中心药品名称</td>
+                        <td>中心药品编码</td>
+                        <td>医院药品名称</td>
+                        <td>剂型</td>
+                        <td>厂家</td>
+                        <td>规格</td>
+                        <td>数量</td>
+                        <td>单价</td>
+                        <td>金额</td>
+                        <td>金额时间</td>
+                        <td>录入时间</td>
+                        <td>记账人</td>
+                        <td>自付金额</td>
+                        <td>比例</td>
+                        <td>医院药品编码</td>
+                        <td>是否合理</td>
+                        <td>原因</td>
+                        <td>审计</td>
+
+                    </tr>
+                    {{range .AuditMed}}
+                        <tr>
+                            <td>{{.Audit_id}}</td>
+                            <td>{{.Business_number}}</td>
+                            <td>{{.Cost_Classes}}</td>
+                            <td>{{.Cost_Classes_Name}}</td>
+                            <td>{{.Main_Drugs_Name}}</td>
+                            <td>{{.Main_Drugs_Code}}</td>
+                            <td>{{.Hospital_Drug_Name}}</td>
+                            <td>{{.Drug_Dosage_Form}}</td>
+                            <td>{{.Manufactor}}</td>
+                            <td>{{.Specifications}}</td>
+                            <td>{{.Number}}</td>
+                            <td>{{.Baimonovalent}}</td>
+                            <td>{{.Money}}</td>
+                            <td>{{.Cost_Time}}</td>
+                            <td>{{.Entry_Time}}</td>
+                            <td>{{.Bookkeeper}}</td>
+                            <td>{{.Mypay}}</td>
+                            <td>{{.Proportion}}</td>
+                            <td>{{.Hospital_Drug_Code}}</td>
+                            <td>{{.IsRight}}</td>
+                            <td>{{.Reason}}</td>
+                            <td><button type="button" name="button" class="btn"><a href="/isright?audit_id={{.Audit_id}}">不合理</a></button></td>
+
+                        </tr>
+                    {{end}}
+                </table>
+            </div>
+          {{end}}
+
+
+      </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>queryResule</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="/static/css/reset.css" rel="stylesheet">
+    <!-- Bootstrap3.3.5 CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/queryResult.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <div style="text-align: center">
+        <h2 style="  font-size: 24px;font-weight: normal;text-align: center;line-height: 40px;padding: 15px 0 10px 0;color: #2EAFBB;">查询结果</h2>
+        <p>
+            <a href="/index">返回首页</a>
+        </p>
+        {{if .History}}
+            <div>
+                <table style=" width: 800px;
+  margin: 0 auto;
+  white-space: nowrap;zoom:0.65;">
+                    <tr>
+                        <td >ID</td>
+                        <td >业务号</td>
+                        <td>姓名</td>
+                        <td>性别</td>
+                        <td>hosnum</td>
+                        <td>住院类型</td>
+                        <td>住院日期</td>
+                        <td>病症名称</td>
+                        <td>备注</td>
+                        <td>治疗科室</td>
+                        <td>床号</td>
+                        <td>身份证号码</td>
+                        <td>报销日期</td>
+                        <td>医院地点</td>
+                        <td>录入时间</td>
+                        <td>总金额</td>
+                        <td>操作</td>
+{{/*                        <td>剩余金额</td>*/}}
+                    </tr>
+                    {{range .PatientPer}}
+                        <tr>
+                            <td>{{.Patient_Id}}</td>
+                            <td>{{.Business_number}}</td>
+                            <td>{{.Name}}</td>
+                            <td>{{.Sex}}</td>
+                            <td>{{.Hosnum}}</td>
+                            <td>{{.HospitalizedType}}</td>
+                            <td>{{.HospitalizedDay}}</td>
+                            <td>{{.DiseasesName}}</td>
+                            <td>{{.Note}}</td>
+                            <td>{{.Department}}</td>
+                            <td>{{.BedNum}}</td>
+                            <td>{{.EntityID}}</td>
+                            <td>{{.Reimbursement_Date}}</td>
+                            <td>{{.Hospital_Location}}</td>
+                            <td>{{.Entry_Time}}</td>
+                            <td>{{.ReAmount}}</td>
+                            <td><button type="button" name="button" class="btn"><a href="/meddatabybus?Business_number={{.Business_number}}">用药详情</a></button><button type="button" name="button" class="btn"><a href="/query2?entityID={{.EntityID}}">医保详情</a></button></td>
+{{/*                            <td>{{.Mypay}}</td>*/}}
+                        </tr>
+                    {{end}}
+                </table>
+            </div>
+        {{end}}
+
+
+    </div>
+</div>
+</body>
+</html>

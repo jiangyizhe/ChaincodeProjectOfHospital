@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>help</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="/static/css/reset.css" rel="stylesheet">
+    <!-- Bootstrap3.3.5 CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/help.css" rel="stylesheet"></head>
+  </head>
+  <body>
+    <div class="container">
+      <div class="m_yah"><a href="/index">首页</a> &gt; 帮助中心</div>
+      <div class="m_s_l" id="leftMenu">
+
+        <div class="m_s_l_menu">系统概况</div>
+        <ul class="m_s_l_ul">
+          <li class="leftMenu0 index">
+            <span class="icon_list">&nbsp;</span>
+            <a href="javascript:void(0);">功能应用</a>
+          </li>
+          <li class="onread leftMenu5">
+            <span class="icon_list">&nbsp;</span>
+            <a href="/uploadpatdata">医疗数据上传</a>
+          </li>
+          <li class="onread leftMenu5">
+            <span class="icon_list">&nbsp;</span>
+            <a href="/addblock2">医疗数据一键上链</a>
+          </li>
+          <li class="onread leftMenu5">
+            <span class="icon_list">&nbsp;</span>
+            <a href="/uploaddata">药品数据上传</a>
+          </li>
+          <li class="onread leftMenu5">
+            <span class="icon_list">&nbsp;</span>
+            <a href="/addblock1">药品数据一键上链</a>
+          </li>
+          <li class="onread leftMenu5">
+            <span class="icon_list">&nbsp;</span>
+            <a href="/readblock">一键读链</a>
+          </li>
+          <li class="onread leftMenu5">
+            <span class="icon_list">&nbsp;</span>
+            <a  href="/addback">一键反馈</a>
+          </li>
+        </ul>
+
+        <div class="m_s_l_menu">人员管理</div>
+        <ul class="m_s_l_ul">
+          <li class="leftMenu1">
+            <span class="icon_list">&nbsp;</span>
+            <a href="/queryPage">根据注册编号查询</a>
+          </li>
+          <li class="leftMenu2">
+            <span class="icon_list">&nbsp;</span>
+            <a href="/queryPage2">根据身份证号查询</a>
+          </li>
+          {{if eq .CurrentUser.IsAdmin "T"}}
+            <li class="leftMenu3">
+              <span class="icon_list">&nbsp;</span>
+              <a href="/addEduInfo">人员注册</a>
+            </li>
+          {{end}}
+{{/*          <li class="leftMenu4">*/}}
+{{/*            <span class="icon_list">&nbsp;</span>*/}}
+{{/*            <a href="javascript:void(0);">企业用户查询</a>*/}}
+{{/*          </li>*/}}
+
+        </ul>
+
+        <div class="m_s_l_menu">数据审计</div>
+        <ul class="m_s_l_ul">
+          <li class="onread leftMenu5">
+            <span class="icon_list">&nbsp;</span>
+            <a href="/patdata">医疗数据审计</a>
+          </li>
+          <li class="onread leftMenu5">
+            <span class="icon_list">&nbsp;</span>
+            <a href="/meddata">药品数据审计</a>
+          </li>
+
+
+
+
+        </ul>
+        <div class="m_s_l_menu">费用结算</div>
+        <ul class="m_s_l_ul">
+          <li class="onread leftMenu5">
+            <span class="icon_list">&nbsp;</span>
+            <a href="/patresult">结算列表</a>
+          </li>
+          <li class="onread leftMenu5">
+            <span class="icon_list">&nbsp;</span>
+            <a href="/backshow">结果反馈</a>
+          </li>
+          <li class="leftMenu5">
+            <span class="icon_list">&nbsp;</span>
+            <a href="/loginout">退出</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="m_s_r" id="rightCnt">
+        <div class="m_cnt_m">
+          <h2>职责介绍</h2>
+          <a id="1" name="1"></a>
+          <h3>&gt;&gt;医保局</h3>
+          <p>组织制定药品、医用耗材价格和医疗服务项目、医疗服务设施收费等政策，建立医保支付医药服务价格合理确定和动态调整机制，推动建立市场主导的社会医药服务价格形成机制，建立价格信息监测和信息发布制度。</p>
+          <p>负责医疗保障经办管理、公共服务体系和信息化建设，贯彻执行并完善异地就医管理、服务和费用结算政策。建立健全医疗保障关系转移接续制度，开展医疗保障领域对外合作交流。</p>
+          <p>制定药品、医用耗材的招标采购制度并监督实施，指导全县医疗卫生机构药品、医用设备、医用耗材集中采购的监督管理工作，指导实施药品、医用耗材招标采购平台建设。</p>
+          <div class="line margin01">&nbsp;</div>
+          <a id="2" name="2"></a>
+      </div>
+      </div></div>
+  </body>
+  <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      // 内容
+      var divs = $('#rightCnt>div');
+      // 点击事件
+      for (var i = 0; i < divs.length; i++) {
+        (function(i) {
+            $('#leftMenu .leftMenu'+i).click(function() {
+              $('#leftMenu li').removeClass('current');
+              $(this).addClass('current');
+              divs.css('display','none');
+              divs.eq(i).css('display','block');
+            })
+        })(i)
+      }
+      $('.index').trigger('click');
+    })
+  </script>
+</html>
+
